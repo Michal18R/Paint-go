@@ -13,6 +13,7 @@ import (
 )
 
 const (
+	// poniżej parametry okienka painta
 	Width  = 500
 	Height = 400
 	// zmienne pod przypisanie przeźroczystości
@@ -26,7 +27,8 @@ var (
 	brush      *ebiten.Image
 	whiteImage *ebiten.Image
 	COLOR      [4]float64
-
+        
+	// przypisanie do zmiennych dany kolor (1.0 to inaczej 255 w skali rgb)
 	WHITE  = [4]float64{1.0, 1.0, 1.0, 1.0}
 	BLACK  = [4]float64{0, 0, 0, 1.0}
 	BLUE   = [4]float64{0, 0, 1.0, 1.0}
