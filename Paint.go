@@ -6,15 +6,15 @@ import (
 	"image/color"
 	_ "image/png"
 	"log"
-	//	"math"
+
 
 	"github.com/hajimehoshi/ebiten"
 	"github.com/hajimehoshi/ebiten/ebitenutil"
 )
 
 const (
-	Width  = 320
-	Height = 240
+	Width  = 500
+	Height = 400
 	// zmienne pod przypisanie przeźroczystości
 	c10 = 0x40
 	c11 = 0xc0
@@ -75,7 +75,7 @@ func draw(canvas *ebiten.Image, x, y int) {
 func button(screen *ebiten.Image) {
 	if ebiten.IsKeyPressed(42) && ebiten.IsKeyPressed(28) {
 		ebitenutil.DebugPrint(screen, fmt.Sprintf("save"))
-		err := image.Encode(w, whiteImage)
+//		err := image.Encode(w, whiteImage)
 	}
 
 	// przypisujemy kolory do posczegolnych przyciskow
@@ -129,7 +129,7 @@ func update(screen *ebiten.Image) error {
 }
 
 func main() {
-	if err := ebiten.Run(update, Width, Height, 2, "Paint (Ebiten Demo)"); err != nil {
+	if err := ebiten.Run(update, Width, Height, 2, "Paint w go"); err != nil {
 		log.Fatal(err)
 	}
 }
