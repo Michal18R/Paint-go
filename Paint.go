@@ -75,7 +75,7 @@ func draw(canvas *ebiten.Image, x, y int) {
 func button(screen *ebiten.Image) {
 	if ebiten.IsKeyPressed(42) && ebiten.IsKeyPressed(28) {
 		ebitenutil.DebugPrint(screen, fmt.Sprintf("save"))
-		err image.Encode(w, whiteImage)
+		err := image.Encode(w, whiteImage)
 	}
 
 	// przypisujemy kolory do posczegolnych przyciskow
