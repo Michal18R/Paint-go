@@ -29,15 +29,16 @@ func savefile(canvas *pixelgl.Canvas, pos pixel.Vec){
 
 	img, _ := screenshot.CaptureScreen() // zrobienie screenshota do img
 	screen := image.Image(img) // stworzenie obiektu typu Image z screenshota
+  	winScreen := image.NewRGBA(image.Rect(0, 0, 1024, 768)) // stworzenie obrazek, w który wrysowujesz kawałek screenshota zawierający okno programu
 
-  winScreen := image.NewRGBA(image.Rect(0, 0, 1024, 768)) // stworzenie obrazek, w który wrysowujesz kawałek screenshota zawierający okno programu
-/*
-  winscreen -> w co ma wrysowywac
-  pozycja w której rysujemy fragment w obrazku docelowym , 0,0 to pozycja lewy dół a 1024 i 768 to wielkość pola rysowania
+	/*
+  	winscreen -> w co ma wrysowywac
+ 	 pozycja w której rysujemy fragment w obrazku docelowym , 0,0 to pozycja lewy dół a 1024 i 768 to wielkość pola rysowania
 	screen -> źródło
 	następny argument odpowiada za ustalenie punktu z którego zaczynamy pobierać dane ( współrzędne punktu pobieramy z getpos)
 	działa?
-*/
+	*/
+	
 	draw.Draw(winScreen, image.Rect(0, 0, 1024, 768), screen, image.Pt(int(pos.X), int(pos.Y)), draw.Src)
 
 	// otwarcie lub stworzenie (jeśli nie istnieje) pliku
