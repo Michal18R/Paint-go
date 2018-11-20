@@ -7,11 +7,13 @@ import (
 	"image/draw"
 	"image/png"
 
-  "github.com/vova616/screenshot"
+
+  	"github.com/vova616/screenshot"
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/imdraw"
 	"github.com/faiface/pixel/pixelgl"
 	"golang.org/x/image/colornames"
+
 
 )
 
@@ -69,26 +71,37 @@ func run(){
 
   // stworzenie samego płótna
 	canvas := pixelgl.NewCanvas(win.Bounds())
-	// główna pętla programu
 
-
-
-
+  // główna pętla programu
 	for !win.Closed(){
-
-
-
 
 		if win.JustPressed(pixelgl.Key1){
 			COLOR = colornames.Blue
-		}
+
+   		 }
 
 		if win.JustPressed(pixelgl.Key2){
 			COLOR = colornames.Green
+
 		}
 
+    		if win.JustPressed(pixelgl.Key3){
+     			 COLOR = colornames.Violet
+
+    		}
+
+   		 if win.JustPressed(pixelgl.Key4){
+    			  COLOR = colornames.Yellow
+
+    		}
+
+    		if win.JustPressed(pixelgl.Key5){
+   			   COLOR = colornames.Red
+
+   		 }
+
 		if win.JustPressed(pixelgl.KeyS){
-      savefile(canvas, win.GetPos())
+      			savefile(canvas, win.GetPos())
 
 		}
 
@@ -98,25 +111,21 @@ func run(){
 			pos := win.MousePosition()
 			// wyczyszczenie parametrów rysowania przed samym narysowaniem
 			imd.Clear()
-      // kolor pędzla
+     			 // kolor pędzla
 			imd.Color = COLOR
-      //pozycja kursora
+      			//pozycja kursora
 			imd.Push(pixel.V(pos.X, pos.Y))
 			//rysowanie samego pedzla wraz z rozmiarem -> 5
 			imd.Circle(5,0)
 		}
 
-
-
 		// rysowanie "płótna" na oknie
 		imd.Draw(canvas)
 		canvas.Draw(win, pixel.IM.Moved(canvas.Bounds().Center()))
-  	win.Update()
-	}
+  		win.Update()
+		}
 
 }
-
-
 
 
 func main() {
